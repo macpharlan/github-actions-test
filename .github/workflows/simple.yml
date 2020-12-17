@@ -10,7 +10,7 @@ jobs:   #jobs key
     runs-on: ubuntu-latest  # value is object
     steps:  #array of objects, each object a step
       - name: echo a string
-        run: echo "hello world"
+        run: eccho "hello world"
       - name: multiline script
         run: |    # The | says running multiple commands 
           node -v
