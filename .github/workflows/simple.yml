@@ -1,0 +1,17 @@
+#workflow name
+name: Shell Commands
+
+#trigger event can put multiple [push, pull, pull_request]
+on: [push]
+
+# workflow run is made up of one or more jobs. Runs in paralell by default. Key for each job object is name of the job NO Spaces in name
+jobs:   #jobs key
+  run-shell-command:  #Job is object, key of object is job name, no spaces (_ or - only)
+    runs-on: ubuntu-latest  # value is object
+    steps:  #array of objects, each object a step
+      - name: echo a string
+        run: echo "hello world"
+      - name: multiline script
+        run: |    # The | says running multiple commands 
+          node -v
+          npm -v 
