@@ -10,8 +10,14 @@ jobs:   #jobs key
     runs-on: ubuntu-latest  # value is object
     steps:  #array of objects, each object a step
       - name: echo a string
-        run: eccho "hello world"
+        run: echo "hello world"
       - name: multiline script
         run: |    # The | says running multiple commands 
           node -v
           npm -v 
+      - name:python command
+        run: |
+          import platform
+          print(platform.processor())
+        shell: python
+        
