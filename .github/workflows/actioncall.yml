@@ -3,18 +3,17 @@ name: Actions Workflow
 on: [push]
 
 jobs:
-	run-github-actions:   #calling a github action with parameters
-		runs-on: ubuntu-latest
-		steps:
-			- name: simple JS Actions
-			  id: greet
-			  uses: actions/hello-world-javascript-action@v1    # references an action(reference version prefered), can be relative path inside this repo or outside source like here(references version or branch or commitID)
-			  #uses: actions/hello-world-javascript-action@master    #
-			  #uses: actions/hello-world-javascript-action@3wekj3wkjk3243234223423l    #commitID
-			  
-			  with:
-				who-to-greet: John		# action docs show input 'who-to-greet'
-				
-			- name: Log Greeting Time    #This action has an output
-			  run: echo "${{ steps.greet.outputs.time }}"  # action docs show Outputs time
-        
+  run-github-actions:   #calling a github action with parameters
+    runs-on: ubuntu-latest
+    steps:
+        - name: simple JS Actions
+            id: greet
+            uses: actions/hello-world-javascript-action@v1    # references an action(reference version prefered), can be relative path inside this repo or outside source like here(references version or branch or commitID)
+            #uses: actions/hello-world-javascript-action@master    #
+            #uses: actions/hello-world-javascript-action@3wekj3wkjk3243234223423l    #commitID
+
+            with:
+                who-to-greet: John		# action docs show input 'who-to-greet'
+        - name: Log Greeting Time    #This action has an output
+            run: echo "${{ steps.greet.outputs.time }}"  # action docs show Outputs time
+     
