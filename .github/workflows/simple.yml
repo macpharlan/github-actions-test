@@ -15,9 +15,16 @@ jobs:   #jobs key
         run: |    # The | says running multiple commands 
           node -v
           npm -v 
-      - name: python command
+      - name: python command  #second step, running python commands
         run:  |
           import platform
           print(platform.processor())
         shell: python
-        
+  run-windows-command:  # Second job (default runs in paralell with other jobs
+    runs-on: windows-latest
+    steps:     # Get the current directory location, do it in both powershell and bash
+      - name: Directory Powershell  # powershell is default(windows) so don't have to list shell
+        run:  Get-Location
+      - name: Directory Bash
+        run: pwd
+        shell: bash
