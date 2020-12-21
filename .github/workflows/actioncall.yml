@@ -12,8 +12,9 @@ jobs:
 			  #uses: actions/hello-world-javascript-action@master    #
 			  #uses: actions/hello-world-javascript-action@3wekj3wkjk3243234223423l    #commitID
 			  
-			  with: 
-				who-to-greet: John    # action docs show input 'who-to-greet'
+			  with:
+				who-to-greet: John		# action docs show input 'who-to-greet'
 				
 			- name: Log Greeting Time    #This action has an output
-				run: echo "${{ steps.greet.outputs.time }}"  # action docs show Outputs time
+			  run: echo "${{ steps.greet.outputs.time }}"  # action docs show Outputs time
+        
