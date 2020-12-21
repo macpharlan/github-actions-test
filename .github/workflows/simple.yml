@@ -20,8 +20,9 @@ jobs:   #jobs key
           import platform
           print(platform.processor())
         shell: python
-  run-windows-command:  # Second job (default runs in paralell with other jobs
+  run-windows-command:  # Second job (default runs in paralell with other jobs if no 'needs' line exists
     runs-on: windows-latest
+    needs: ["run-shell-command"]   # needs array makes this job dependent on other jobs
     steps:     # Get the current directory location, do it in both powershell and bash
       - name: Directory Powershell  # powershell is default(windows) so don't have to list shell
         run:  Get-Location
