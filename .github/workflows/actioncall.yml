@@ -9,8 +9,8 @@ jobs:
         - name: simple JS Actions
           id: greet
           uses: actions/hello-world-javascript-action@v1    # references an action(reference version prefered), can be relative path inside this repo or outside source like here(references version or branch or commitID)
-            #uses: actions/hello-world-javascript-action@master    #
-            #uses: actions/hello-world-javascript-action@3wekj3wkjk3243234223423l    #commitID
+          #uses: actions/hello-world-javascript-action@master    #
+          #uses: actions/hello-world-javascript-action@3wekj3wkjk3243234223423l    #commitID
 
           with:
             who-to-greet: John		# action docs show input 'who-to-greet'
