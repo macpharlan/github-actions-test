@@ -8,7 +8,12 @@ jobs:
     steps:
         - name: List Files
           run: pwd
-               ls
+               ls -a
+        - name: Checkout
+          uses: actions/checkout@v2
+        - name: List Files After Checkout
+          run: pwd
+               ls -a
         - name: simple JS Actions
           id: greet
           uses: actions/hello-world-javascript-action@v1    # references an action(reference version prefered), can be relative path inside this repo or outside source like here(references version or branch or commitID)
