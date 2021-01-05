@@ -6,6 +6,9 @@ jobs:
   run-github-actions:   #calling a github action with parameters
     runs-on: ubuntu-latest
     steps:
+        - name: List Files
+          run: pwd
+               ls
         - name: simple JS Actions
           id: greet
           uses: actions/hello-world-javascript-action@v1    # references an action(reference version prefered), can be relative path inside this repo or outside source like here(references version or branch or commitID)
