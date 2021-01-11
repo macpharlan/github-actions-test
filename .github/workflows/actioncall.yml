@@ -6,13 +6,18 @@ jobs:
   run-github-actions:   #calling a github action with parameters
     runs-on: ubuntu-latest
     steps:
-        - name: List Files
+        - name: List Files   # Simple step to show directory contents
           run: |
             pwd
             ls -a
-        - name: Checkout
+			echo $GITHUB_SHA
+			echo $GITHUB_REPOSITORY
+			echo $GITHUB_WORKSPACE
+			echo "${{ github.token }}"  # object for github token
+			# Could do your own clone/checkout here using variables above
+        - name: Checkout      # This step calls built in action of checkout (see actions/checkout documentation)
           uses: actions/checkout@v2
-        - name: List Files After Checkout
+        - name: List Files After Checkout  # Simple step to show directory contents after checkou
           run: |
             pwd
             ls -a
