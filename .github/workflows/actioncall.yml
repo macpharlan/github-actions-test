@@ -6,29 +6,27 @@ jobs:
   run-github-actions:   #calling a github action with parameters
     runs-on: ubuntu-latest
     steps:
-	  - name: List Files   # Simple step to show directory contents
-		run: |
-		  pwd
-		  ls -a
-		  echo $GITHUB_SHA
-		  echo $GITHUB_REPOSITORY
-		  echo $GITHUB_WORKSPACE
-		  echo "${{ github.token }}"  # object for github token
-			# Could do your own clone/checkout here using variables above
-        - name: Checkout      # This step calls built in action of checkout (see actions/checkout documentation)
-          uses: actions/checkout@v2
-        - name: List Files After Checkout  # Simple step to show directory contents after checkou
-          run: |
-            pwd
-            ls -a
-        - name: simple JS Actions
-          id: greet
-          uses: actions/hello-world-javascript-action@v1    # references an action(reference version prefered), can be relative path inside this repo or outside source like here(references version or branch or commitID)
-          #uses: actions/hello-world-javascript-action@master    #
-          #uses: actions/hello-world-javascript-action@3wekj3wkjk3243234223423l    #commitID
-
-          with:
-            who-to-greet: John		# action docs show input 'who-to-greet'
-        - name: Log Greeting Time    #This action has an output
-          run: echo "${{ steps.greet.outputs.time }}"  # action docs show Outputs time
-     
+      - name: List Files   # Simple step to show directory contents
+        run: |
+          pwd
+          ls -a
+          echo $GITHUB_SHA
+          echo $GITHUB_REPOSITORY
+          echo $GITHUB_WORKSPACE
+          echo "${{ github.token }}"  # object for github token
+          # Could do your own clone/checkout here using variables above
+      - name: Checkout      # This step calls built in action of checkout (see actions/checkout documentation)
+        uses: actions/checkout@v2
+      - name: List Files After Checkout  # Simple step to show directory contents after checkou
+        run: |
+          pwd
+          ls -a
+      - name: simple JS Actions
+        id: greet
+        uses: actions/hello-world-javascript-action@v1    # references an action(reference version prefered), can be relative path inside this repo or outside source like here(references version or branch or commitID)
+        #uses: actions/hello-world-javascript-action@master    #
+        #uses: actions/hello-world-javascript-action@3wekj3wkjk3243234223423l    #commitID
+        with:
+          who-to-greet: John		# action docs show input 'who-to-greet'
+      - name: Log Greeting Time    #This action has an output
+        run: echo "${{ steps.greet.outputs.time }}"  # action docs show Outputs time
